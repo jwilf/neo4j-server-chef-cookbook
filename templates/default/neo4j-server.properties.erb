@@ -15,6 +15,11 @@ org.neo4j.server.database.location=<%= node.neo4j.server.data_dir %>
 # any connection. Please see the security section in the neo4j 
 # manual before modifying this.
 org.neo4j.server.webserver.address=<%= node.neo4j.server.http.host %>
+<% if node.neo4j.server.ha.enabled %>
+
+# Enable HA mode
+org.neo4j.server.database.mode=HA
+<% end %>
 
 #
 # HTTP Connector

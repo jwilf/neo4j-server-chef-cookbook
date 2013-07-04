@@ -1,9 +1,9 @@
 # Default values for the low-level graph engine
-#neostore.nodestore.db.mapped_memory=25M
-#neostore.relationshipstore.db.mapped_memory=50M
-#neostore.propertystore.db.mapped_memory=90M
-#neostore.propertystore.db.strings.mapped_memory=130M
-#neostore.propertystore.db.arrays.mapped_memory=130M
+neostore.nodestore.db.mapped_memory=25M
+neostore.relationshipstore.db.mapped_memory=50M
+neostore.propertystore.db.mapped_memory=90M
+neostore.propertystore.db.strings.mapped_memory=130M
+neostore.propertystore.db.arrays.mapped_memory=130M
 
 # Enable this to be able to upgrade a store from 1.4 -> 1.5 or 1.4 -> 1.6
 #allow_store_upgrade=true
@@ -29,3 +29,12 @@ node_auto_indexing=<%= node.neo4j.server.node_auto_indexing.enabled %>
 
 # The relationship property keys to be auto-indexed, if enabled
 #relationship_keys_indexable=name,age
+
+<% if node.neo4j.server.ha.enabled %>
+# HA Setup
+ha.discovery.enabled=false
+ha.server=<%= node.neo4j.server.ha.server %>:6002
+ha.cluster_server=<%= node.neo4j.server.ha.server %>:5001
+ha.server_id=<%= node.neo4j.server.ha.server_id %>
+ha.initial_hosts=<%= node.neo4j.server.ha.initial_hosts.collect { |ip| "#{ip}:5001" }.join(',') %>
+<% end %>
