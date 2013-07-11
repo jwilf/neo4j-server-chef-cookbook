@@ -175,4 +175,5 @@ ruby_block "make sure pam_limits.so is required" do
     fe.write_file
   end
   notifies :restart, 'service[neo4j]'
+  not_if {node.platform_family == 'rhel'}
 end
