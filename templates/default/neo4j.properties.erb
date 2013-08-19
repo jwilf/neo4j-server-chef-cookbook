@@ -33,6 +33,8 @@ node_auto_indexing=<%= node.neo4j.server.node_auto_indexing.enabled %>
 <% if node.neo4j.server.ha.enabled %>
 # HA Setup
 ha.discovery.enabled=false
+ha.pull_interval=<%= node.neo4j.server.ha.pull_interval %>
+ha.tx_push_factor=<%= node.neo4j.server.ha.tx_push_factor %>
 ha.server=<%= node.neo4j.server.ha.server %>:6002
 ha.cluster_server=<%= node.neo4j.server.ha.server %>:5001
 ha.server_id=<%= node.neo4j.server.ha.server_id %>
