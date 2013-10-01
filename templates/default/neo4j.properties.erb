@@ -40,5 +40,5 @@ ha.cluster_server=<%= node.neo4j.server.ha.server %>:5001
 ha.server_id=<%= node.neo4j.server.ha.server_id %>
 ha.initial_hosts=<%= node.neo4j.server.ha.initial_hosts.collect { |ip| "#{ip}:5001" }.join(',') %>
 ha.heartbeat_interval=<%= node.neo4j.server.ha.heartbeat_interval %>
-ha.heartbeat_timeout=<%= node.neo4j.server.ha.heatbeat_timeout %>
+ha.heartbeat_timeout=<%= node.neo4j.server.ha.heartbeat_timeout %>
 <% end %>
