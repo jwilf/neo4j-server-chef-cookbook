@@ -4,6 +4,7 @@ default[:neo4j][:server][:tarball][:url]     = "http://dist.neo4j.org/neo4j-comm
 
 default[:neo4j][:server][:jvm][:xms]         =  32
 default[:neo4j][:server][:jvm][:xmx]         = 512
+default[:neo4j][:server][:keep_logical_logs] = 'true'
 default[:neo4j][:server][:limits][:memlock]  = 'unlimited'
 default[:neo4j][:server][:limits][:nofile]   = 48000
 
