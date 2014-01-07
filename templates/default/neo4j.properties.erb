@@ -30,6 +30,9 @@ node_auto_indexing=<%= node.neo4j.server.node_auto_indexing.enabled %>
 # The relationship property keys to be auto-indexed, if enabled
 #relationship_keys_indexable=name,age
 
+# Configure caching type
+cache_type=<%= node.neo4j.server.cache_type %>
+
 <% if node.neo4j.server.ha.enabled %>
 # HA Setup
 ha.discovery.enabled=false
