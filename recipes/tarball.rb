@@ -21,7 +21,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
-include_recipe "java"
+# include_recipe "java"
 package 'unzip'
 package 'lsof' # Required to launch the neo4j service
 
@@ -46,11 +46,11 @@ end
 require "tmpdir"
 
 td          = Dir.tmpdir
-tmp         = File.join(td, "neo4j-community-#{node.neo4j.server.version}.tar.gz")
+tmp         = File.join(td, "neo4j-#{node.neo4j.server.edition}-#{node.neo4j.server.version}.tar.gz")
 tmp_spatial = File.join(td, "neo4j-spatial-#{node.neo4j.server.plugins.spatial.version}-server-plugin.zip")
 
 remote_file(tmp) do
-  source node.neo4j.server.tarball.url
+  source node.neo4j.server.tarball.url || tarball_url
 
   not_if "which neo4j"
 end
