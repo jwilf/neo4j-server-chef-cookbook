@@ -32,3 +32,5 @@ default[:neo4j][:server][:plugins][:spatial][:url]      = "https://github.com/do
 
 default[:neo4j][:server][:node_auto_indexing][:enabled]         = false
 default[:neo4j][:server][:node_auto_indexing][:keys_indexable]  = ''
+
+default[:neo4j][:server][:ha][:slave_only]  = false
